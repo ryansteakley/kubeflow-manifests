@@ -7,7 +7,7 @@ jobs:
   pr_commented:
     # This job only runs for pull request comments
     name: PR comment
-    if: github.event.issue.pull_request && github.event.comment.body == '/test' && ${{ github.actor == github.repository_owner}}
+    if: github.event.issue.pull_request && github.event.comment.body == '/test'
     runs-on: ubuntu-latest
     steps:
       - run: |
