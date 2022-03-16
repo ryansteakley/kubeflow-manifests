@@ -31,7 +31,7 @@ We adhere to the [Amazon Open Source Code of Conduct](CODE_OF_CONDUCT.md#code-of
 
 ## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information..
 
 ## License
 
