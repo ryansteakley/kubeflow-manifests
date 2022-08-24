@@ -492,7 +492,7 @@ public.ecr.aws/c9e4w0g3/notebook-servers/jupyter-pytorch:1.11.0-cpu-py38-ubuntu2
         
         
         &lt;p&gt;This tutorial shows how to set up a load balancer endpoint for serving prediction requests over an external DNS on AWS.&lt;/p&gt;
-&lt;p&gt;The KFServing project is now called &lt;a href=&#34;https://kserve.github.io/website/0.7/blog/articles/2021-09-27-kfserving-transition/#kfserving-is-now-kserve&#34;&gt;KServe&lt;/a&gt;. To migrate from KFServing to Kserve follow this [guide]https://kserve.github.io/website/0.7/admin/migration/&lt;/p&gt;
+&lt;p&gt;The KFServing project is now called &lt;a href=&#34;https://kserve.github.io/website/0.7/blog/articles/2021-09-27-kfserving-transition/#kfserving-is-now-kserve&#34;&gt;KServe&lt;/a&gt;. To migrate from KFServing to Kserve follow this &lt;a href=&#34;https://kserve.github.io/website/0.7/admin/migration/&#34;&gt;guide&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Read the &lt;a href=&#34;https://ryansteakley.github.io/kubeflow-manifests/update-istio-remove-kfserving/docs/deployment/add-ons/load-balancer/guide/#background&#34;&gt;background&lt;/a&gt; section of the Load Balancer installation guide to familiarize yourself with the requirements for creating an Application Load Balancer on AWS.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;This guide assumes that you have:&lt;/p&gt;
