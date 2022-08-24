@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/ryansteakley.github.io\/kubeflow-manifests\/update-istio-remove-kfserving\/docs\/deployment\/vanilla\/guide\/",
-      "wordCount" : "1272",
+      "wordCount" : "1241",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ryansteakley.github.io/kubeflow-manifests/update-istio-remove-kfserving/docs/deployment/vanilla/guide/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-08-09T14:37:51-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
+<meta property="article:modified_time" content="2022-08-23T20:41:52-07:00" /><meta property="og:site_name" content="Kubeflow on AWS" />
 
 <meta itemprop="name" content="Vanilla Installation">
 <meta itemprop="description" content="Deploy Kubeflow on AWS using Amazon Elastic Kubernetes Service (EKS)">
-<meta itemprop="dateModified" content="2022-08-09T14:37:51-07:00" />
-<meta itemprop="wordCount" content="1272">
+<meta itemprop="dateModified" content="2022-08-23T20:41:52-07:00" />
+<meta itemprop="wordCount" content="1241">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vanilla Installation"/>
 <meta name="twitter:description" content="Deploy Kubeflow on AWS using Amazon Elastic Kubernetes Service (EKS)"/>
@@ -429,9 +429,9 @@ network authorization, and implement routing policies.</p>
 <p>Install OIDC AuthService:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/oidc-authservice/base <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><h4 id="knative">Knative</h4>
-<p>Knative is used by the KServe/KFServing official Kubeflow component.</p>
+<p>Knative is used by the KServe official Kubeflow component.</p>
 <p>Install Knative Serving:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-serving/base <span class="p">|</span> kubectl apply -f -
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/common/knative/knative-serving/overlays/gateways <span class="p">|</span> kubectl apply -f -
 </span></span><span class="line"><span class="cl">kustomize build upstream/common/istio-1-14/cluster-local-gateway/base <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><p>Optionally, you can install Knative Eventing, which can be used for inference request logging.</p>
 <p>Install Knative Eventing:</p>
@@ -457,15 +457,13 @@ well.</p>
 </span></span></code></pre></div><h4 id="kubeflow-pipelines">Kubeflow Pipelines</h4>
 <p>Install the <a href="https://www.kubeflow.org/docs/components/pipelines/multi-user/">Multi-User Kubeflow Pipelines</a> official Kubeflow component:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/apps/pipeline/upstream/env/cert-manager/platform-agnostic-multi-user <span class="p">|</span> kubectl apply -f -
-</span></span></code></pre></div><h4 id="kserve--kfserving">KServe / KFServing</h4>
-<p>KFServing was rebranded to KServe.</p>
+</span></span></code></pre></div><h4 id="kserve">KServe</h4>
+<p>Kubeflow 1.6 and above only supports KServe
+KFServing was rebranded to KServe.</p>
 <p>Install the KServe component:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build awsconfigs/apps/kserve <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><p>Install the Models web app:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/contrib/kserve/models-web-app/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
-</span></span></code></pre></div><p>For those not ready to migrate to KServe, you can still install KFServing v0.6.1 with
-the following command, but we recommend migrating to KServe as soon as possible:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/apps/kfserving/upstream/overlays/kubeflow <span class="p">|</span> kubectl apply -f -
 </span></span></code></pre></div><h4 id="katib">Katib</h4>
 <p>Install the Katib official Kubeflow component:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kustomize build upstream/apps/katib/upstream/installs/katib-with-kubeflow <span class="p">|</span> kubectl apply -f -
@@ -541,7 +539,7 @@ components:</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified August 9, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/4cdb8c2fd801381b8094d8c1293dc5afd6d8e1ca">update istio and remove kfserving (4cdb8c2)</a>
+  Last modified August 23, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/02e2f85d16bb7f6bfc0bfd79bd3169e4c34e4ccb">update kfserve references (02e2f85)</a>
 </div>
 
 </div>
