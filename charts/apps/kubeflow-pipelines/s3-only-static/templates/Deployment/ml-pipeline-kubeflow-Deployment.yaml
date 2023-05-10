@@ -102,7 +102,7 @@ spec:
         envFrom:
         - configMapRef:
             name: pipeline-api-server-config-dc9hkg52h6
-        image: public.ecr.aws/g0g3n5n9/minio-go-update:v22
+        image: public.ecr.aws/g0g3n5n9/minio-go-update:v212
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
