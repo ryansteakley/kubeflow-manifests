@@ -2,7 +2,7 @@ rds:
   dbHost:
   mlmdDb:
 s3:
-  bucketName:
+  bucketName: kf-artifact-store-20230505201144673600000002
   minioServiceHost: s3.amazonaws.com
-  minioServiceRegion:
+  minioServiceRegion: us-east-1
   roleArn:
