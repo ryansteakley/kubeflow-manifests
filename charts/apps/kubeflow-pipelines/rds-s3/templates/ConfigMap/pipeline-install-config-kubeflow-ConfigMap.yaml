@@ -4,7 +4,7 @@ data:
   DEFAULT_CACHE_STALENESS: ''
   MAXIMUM_CACHE_STALENESS: ''
   appName: pipeline
-  appVersion: 2.0.0-alpha.7
+  appVersion: 2.0.0
   autoUpdatePipelineDefaultVersion: 'true'
   bucketName: '{{ .Values.s3.bucketName }}'
   cacheDb: cachedb
@@ -13,7 +13,7 @@ data:
   cronScheduleTimezone: UTC
   dbHost: '{{ .Values.rds.dbHost }}'
   dbPort: '3306'
-  defaultPipelineRoot: ''
+  defaultPipelineRoot: '{{ .Values.s3.bucketName }}'
   minioServiceHost: '{{ .Values.s3.minioServiceHost }}'
   minioServiceRegion: '{{ .Values.s3.minioServiceRegion }}'
   mlmdDb: '{{ .Values.rds.mlmdDb }}'
