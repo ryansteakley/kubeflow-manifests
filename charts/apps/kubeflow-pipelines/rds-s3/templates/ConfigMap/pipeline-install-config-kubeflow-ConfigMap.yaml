@@ -13,7 +13,7 @@ data:
   cronScheduleTimezone: UTC
   dbHost: '{{ .Values.rds.dbHost }}'
   dbPort: '3306'
-  defaultPipelineRoot: '{{ .Values.s3.bucketName }}'
+  defaultPipelineRoot: 
   minioServiceHost: '{{ .Values.s3.minioServiceHost }}'
   minioServiceRegion: '{{ .Values.s3.minioServiceRegion }}'
   mlmdDb: '{{ .Values.rds.mlmdDb }}'
